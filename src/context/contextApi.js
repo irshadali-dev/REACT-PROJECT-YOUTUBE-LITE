@@ -5,7 +5,7 @@ import { fetchDataFromApi } from '../utils/api'
 export const Context = createContext()
 
 export const AppContext = (props) => {
-    const [loading, setloading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [searchResults, setSearchResults] = useState(false)
     const [selectCategories, setSelectCategories] = useState(false)
     const [mobileMenu, setMobileMenu] = useState(false)
@@ -15,18 +15,18 @@ export const AppContext = (props) => {
     }, [selectCategories])
 
     const fetchSelectedCategoryData = (query) => {
-        setloading(true)
+        setLoading(true)
         fetchDataFromApi(`search/?=${query}`).then((contents) => {
             console.log(contents)
             setSearchResults(contents)
-            setloading(false)
+            setLoading(false)
         })
     }
 
     return (
         <Context.Provider value={{
             loading,
-            setloading,
+            setLoading,
             searchResults,
             setSearchResults,
             selectCategories,
